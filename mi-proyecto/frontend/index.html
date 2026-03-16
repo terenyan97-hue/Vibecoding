@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Notas Privadas</title>
+  <link rel="icon" href="data:," />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- AUTH -->
+  <div id="auth-section" class="container">
+    <h1>📝 Notas Privadas</h1>
+    <div class="tabs">
+      <button class="tab active" onclick="showTab('login')">Iniciar sesión</button>
+      <button class="tab" onclick="showTab('register')">Registrarse</button>
+    </div>
+
+    <form id="login-form" class="auth-form" onsubmit="handleLogin(event)">
+      <input type="email" id="login-email" placeholder="Email" required />
+      <input type="password" id="login-password" placeholder="Contraseña" required />
+      <button type="submit">Entrar</button>
+      <p class="error" id="login-error"></p>
+    </form>
+
+    <form id="register-form" class="auth-form hidden" onsubmit="handleRegister(event)">
+      <input type="email" id="reg-email" placeholder="Email" required />
+      <input type="password" id="reg-password" placeholder="Contraseña (mín. 6 caracteres)" required />
+      <input type="password" id="reg-confirm" placeholder="Confirmar contraseña" required />
+      <button type="submit">Crear cuenta</button>
+      <p class="error" id="register-error"></p>
+    </form>
+  </div>
+
+  <!-- APP -->
+  <div id="app-section" class="hidden">
+    <header>
+      <span>📝 Notas Privadas</span>
+      <div class="header-right">
+        <span id="user-email"></span>
+        <button onclick="logout()">Salir</button>
+      </div>
+    </header>
+
+    <div class="app-layout">
+      <!-- Lista de notas -->
+      <aside id="notes-list">
+        <div class="aside-header">
+          <h2>Mis notas</h2>
+          <button onclick="newNote()">+ Nueva</button>
+        </div>
+        <div id="notes-items"></div>
+      </aside>
+
+      <!-- Editor -->
+      <main id="editor-panel">
+        <div id="empty-state">
+          <p>Selecciona una nota o crea una nueva</p>
+        </div>
+        <div id="note-editor" class="hidden">
+          <input type="text" id="note-title" placeholder="Título" maxlength="200" />
+          <textarea id="note-content" placeholder="Escribe tu nota aquí..." maxlength="10000"></textarea>
+          <div class="editor-actions">
+            <button onclick="saveNote()">Guardar</button>
+            <button class="danger" onclick="deleteNote()">Eliminar</button>
+            <span id="save-status"></span>
+          </div>
+          <p class="error" id="editor-error"></p>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

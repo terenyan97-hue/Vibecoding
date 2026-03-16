@@ -1,0 +1,11 @@
+{
+  "usuarios": [
+    {
+      "id": 1,
+      "email": "terenyan97@gmail.com",
+      "password": "$2a$10$2wlrhvj4AXAfJeb84VXPE.u2YllgODfztieWLSQvWvUzBWYiLMQo6",
+      "created_at": "2026-03-16T16:52:58.405Z"
+    }
+  ],
+  "notas": []
+}
